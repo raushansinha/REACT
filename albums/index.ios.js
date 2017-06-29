@@ -6,9 +6,11 @@
 
 //Import a library to help create a component
 
-import React, { Component } from 'react'; // handles components to make them work togather
-import { AppRegistry } from 'react-native'; // Take component output to place it on control, proviedes default core components (image, text)
-import Header from './src/components/Header'
+import React from 'react'; // handles components to make them work togather
+import { AppRegistry, View } from 'react-native'; // Take component output to place it on control, 
+                                            // proviedes default core components (image, text)
+import Header from './src/components/Header';
+import AlbumList from './src/components/AlbumList';
 //Create a component
 
 // const App = () => {
@@ -22,8 +24,11 @@ import Header from './src/components/Header'
 //Same as above
 
 const App = () => (
-  <Header></Header>
-)
+  <View>
+    <Header headerText={'Albums'} />
+    <AlbumList />
+  </View>
+);
 //Render it to the device
  
  AppRegistry.registerComponent('albums', () => App); // Only root component uses AppRegistry
