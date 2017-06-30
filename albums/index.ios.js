@@ -24,11 +24,18 @@ import AlbumList from './src/components/AlbumList';
 //Same as above
 
 const App = () => (
-  <View>
+  <View style={styles.AlbumList}>
     <Header headerText={'Albums'} />
     <AlbumList />
   </View>
 );
+
+//flex:1 at root required to make content scrollable
+const styles = {
+  rootStyle: {
+    flex: 1
+  }
+}
 //Render it to the device
  
  AppRegistry.registerComponent('albums', () => App); // Only root component uses AppRegistry
