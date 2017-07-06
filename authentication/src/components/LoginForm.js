@@ -1,22 +1,28 @@
 import React, { Component } from 'react';
-import { TextInput } from 'react-native';
-import { Button, Card, CardSection } from './common';
+import { Button, Card, CardSection, InputField } from './common';
 
 class LoginForm extends Component {
-    state = { text: '' };
+    state = { email: '', password: '' };
 
     render() {
         return (
             <Card>
                 <CardSection>
-                    <TextInput 
+                    <InputField 
+                        label='email'
+                        placeholder='user@gmail.com'
                         value={this.state.text}
-                        onChangeText={text => this.setState({ text })}
-                        style={{ height: 20, width: 100 }} 
+                        onChangeText={email => this.setState({ email })} 
                     />
                 </CardSection>
-
+                
                 <CardSection>
+                    <InputField 
+                        secureTextEntry
+                        label='password'
+                        value={this.state.text}
+                        onChangeText={password => this.setState({ password })} 
+                    />
                 </CardSection>
 
                 <CardSection>
