@@ -80,7 +80,7 @@ export const selectLibrary = (libraryId) => {   // not export default as we are 
     payload: libraryId
 }
 
-# Select Index in component
+# Select Actions in component
 import * as actions from './actions'
 
 //dispatch action 
