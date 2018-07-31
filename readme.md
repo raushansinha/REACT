@@ -14,9 +14,9 @@ run app using
 react-native run-ios
 
 
-Redux in React-Native
+# Redux in React-Native
 
-1. App.js
+# App.js
 
 import reducers from ./reducers
 impprt { provider } from 'react-redux'; 
@@ -25,7 +25,7 @@ impprt { provider } from 'react-redux';
   <View />
 </provider>
 
-2. reducers/ LibraryReducer.js
+# reducers/ LibraryReducer.js
     import data from './LibraryList.json'
     
     const initialState = data;
@@ -38,7 +38,7 @@ impprt { provider } from 'react-redux';
       }
     }
   
-2. reducers/index.js
+# reducers/index.js
 
 import { combineReducers } from 'redux';
 import LibraryReducer from './LibraryReducer';
@@ -50,7 +50,7 @@ export default combileReducers({
   selectedLibraryId: SelectionReducer
 });
 
-3. Pulling data from store to component
+# Pulling data from store to component
 ListItem.js
 
 
@@ -70,7 +70,7 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps)(componentName)
 
-4. Adding Action creators
+# Adding Action creators
 
 actions/index.js
 
@@ -80,7 +80,7 @@ export const selectLibrary = (libraryId) => {   // not export default as we are 
     payload: libraryId
 }
 
-5. Select Index in component
+# Select Index in component
 import * as actions from './actions'
 
 //dispatch action 
@@ -93,5 +93,17 @@ import * as actions from './actions'
 </TouchableWithoutFeedback>
 export default connect(mapStateToProps, actions)(componentName)
 
+# Creating mapStateToProps with ownProps
 
+
+const mapStateToProps = state => {
+  return { selectedLobraryId: state.selectedLobraryId }; // this will add selectedLobraryId to props of the component
+}
+
+#  ownProps is the props of current compoent (same as this.props)
+
+const mapStateToProps = (state, ownProps) => {   // ownProps is the props of current compoent
+  expanded = state.selectedLobraryId === ownProps.library.id
+  return { expanded }; 
+}
 
